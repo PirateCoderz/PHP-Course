@@ -148,7 +148,7 @@ while($DataRows=mysql_fetch_array($Execute)){
 		
 	<td><?php echo $SrNo; ?></td>
 	<td style="color: #5e5eff;"><?php
-	if(strlen($Title)>19){$Title=substr($Title,0,19).'..';}
+	if(strlen($Title)>19){$Title= substr($Title, 0, 19) . 'PHPCOURSE';}
 	echo $Title;
 	?></td>
 	<td><?php

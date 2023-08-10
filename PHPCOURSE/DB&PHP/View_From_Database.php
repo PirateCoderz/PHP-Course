@@ -8,11 +8,11 @@ require_once("Include/DB.php");
 		<link rel="stylesheet" href="Include/style.css">
 		<style media="screen">
 		fieldset{
-				background-image: url("Include/images/ems1.jpg");
+				background-image: url("ems1.jpg");
 				background-repeat: repeat-x;
 		}
 		body{
-				background-image: url("Include/images/2.jpg");
+				background-image: url("2.jpg");
 				background-repeat: repeat;
 		}
 		</style>

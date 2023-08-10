@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-    <title>Contact Page</title>
+    <title>Index Page Having Common Structure</title>
 
     <meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
@@ -42,7 +42,7 @@
 
 #menu ul li a:hover,#menu ul li a.selected
 {
-    background: url("images/pattern.png");
+    background: url("pattern.png");
     background-color: #5D0580;
     color: #fff; 
 }
@@ -59,7 +59,7 @@
     list-style: none;
 }
 section.links h3{
-    background: rgba(0, 0, 0, 0) url("images/pattern.png") repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("pattern.png") repeat scroll 0 0;
     color: white;
     font-family: Bitter,Georgia,Times,"Times New Roman",serif;
     font-size: 1.9em;
@@ -92,7 +92,7 @@ section.links li a{
 	
     }
 section.links li a:hover{
-    background: url("images/pattern.png");
+    background: url("pattern.png");
     display: block;
     list-style: none;
     font-size: 1.3em;
@@ -112,7 +112,7 @@ section.links li a:hover{
 h2,legend{
     color: White;
     font-size: 1.6em;  
-background: url("images/pattern.png");
+background: url("pattern.png");
 font-family: Bitter,Georgia,Times,"Times New Roman",serif;
 text-align: center;
 background-color:#5D0580;
@@ -146,101 +146,44 @@ background-color:#5D0580;
         </div>
         <div id="menu">
             <ul>
-                <li><a href="Index.php">Home</a></li>
-                <li><a href="Index.php?PageName=About" >About Us </a></li>
-                <li><a href="Index.php?PageName=Contact">Contact Us</a></li>
-		<li><a href="Index.php?PageName=ShareWithFriend">Tell a friend</a></li>
-                <li><a href="Index.php?PageName=Home">Coming Soon</a></li>
-		<li><a href="">Forum</a></li>
+<li><a href="Index.php">Home</a></li>
+<li><a href="Index.php?PageName=About" >About Us </a></li>
+<li><a href="Index.php?PageName=Contact">Contact Us</a></li>
+<li><a href="Index.php?PageName=ShareWithFriend">Tell a friend</a></li>
+<li><a href="">Coming Soon</a></li>
+<li><a href="">Forum</a></li>
             </ul>
-            <div class="clear"></div>
-            
-        </div>
+ <div class="clear"></div>
+ </div>
         <!-- Main Area Content Area -->
         <div id="main">
-                       <div id="content">
-           
-	<h1 id="request">Movie Premier Booking Form</h1>
-<p class="req">Interested in Movie Premier at NY Cinema? Please complete and submit the following form to the Booking Office. One of our representatives will send you an information package tailored to the field(s) of Premier that interest you. Please indicate whether you would like additional information or not</p>
+<div id="content">
+<?php
+$PagesDirectory='Pages Folder';
+if(!empty($_GET['PageName']))
+{
 
-
-<style type="text/css">
-input[type="text"],input[type="email"],textarea{
-	border:  1px solid dashed;
-	background-color: rgb(221,216,212);
-	width: 480px;
-	padding: .5em;
-	font-size: 1.0em;
+$PagesFolder=scandir($PagesDirectory,0);
+unset($PagesFolder[0],$PagesFolder[1]);
+$PageName=$_GET['PageName'];
+if(in_array($PageName.'.inc.php',$PagesFolder)){
+include($PagesDirectory.'/'.$PageName.'.inc.php');    
+}else{
+    echo '<h1 id="request">You are Lost..</h1>';
+echo '<img src="Images/Lost.gif" width="680" height="430">';
+    
+    echo '<h2>Sorry Page Not Found</h2>';
 }
-.Error{
-	color: red;
-    font-size: 1.2em;  
-font-family: Bitter,Georgia,Times,"Times New Roman",serif;}
-input[type="submit"]{
- color: white;
-    float: right;
-    font-size: 1.3em;
-    font-family: Bitter,Georgia,Times,"Times New Roman",serif;
-    width: 170px;
-    height: 40px;
-    background-color:  #5D0580;
-    border: 5px solid ;
-    border-bottom-left-radius: 35px;
-   border-bottom-right-radius: 35px;
-   border-top-left-radius: 35px;
-   border-top-right-radius: 35px;
-    border-color: rgb(221,216,212);
-      font-weight: bold;
-}
-.FieldInfo{
-     color: rgb(251, 174, 44);
-    font-family: Bitter,Georgia,"Times New Roman",Times,serif;
-    font-size: 1.3em;
-   
 
 }
-.MF{
-	color: black;
-    font-size: 1.2em;  
-font-family: Bitter,Georgia,Times,"Times New Roman",serif;}
-
-</style>
-
-<?php ?>
-
-<form  action="" method="post"> 
-<legend>* Please Fill Out the following Fields.</legend>			
-<fieldset>
- <span class="FieldInfo">
-Name:</span><br>
-<input class="input" type="text" Name="Name" value="">
-<span class="Error">*<?php echo $NameError;  ?></span><br>
-<span class="FieldInfo">
-E-mail:</span><br>
-<input class="input" type="text" Name="Email" value="">
-<span class="Error">*<?php echo $EmailError; ?></span><br>
-<span class="FieldInfo">
-Gender:</span><br>
-<input class="radio" type="radio" Name="Gender" value="Female"><span class="MF">Female</span>
-<input class="radio" type="radio" Name="Gender" value="Male"><span class="MF">Male</span>
-<span class="Error">*<?php echo $GenderError; ?></span><br>
-<span class="FieldInfo">
-Website:</span><br>
-<input class="input" type="text" Name="Website" value="">
-<span class="Error">*<?php echo $WebsiteError; ?></span><br>
-<span class="FieldInfo">
-Comment:</span><br>
-<textarea Name="Comment" rows="5" cols="25"></textarea>
-<br>
-<br>
-<input type="Submit" Name="Submit" value="Submit">
-   </fieldset>
-</form>
-
+else{
+    include($PagesDirectory.'/Home.inc.php');
+}
+?>
  	
 	  <div class="clear"></div>	  	 
 
-	    </div>
+ </div>
 	    
          <!-- Side Area -->
             <div id="side">
@@ -255,11 +198,11 @@ Comment:</span><br>
 		
 	    </ul>
 	     </section>
-	   <h2 style="background: url(images/pattern.png);">Today's Top Movies</h2>
+	   <h2 style="background: url(pattern.png);">Today's Top Movies</h2>
 	    <section class="sideimage">
 	    <img src="images/V.jpg" width="270" height="120" alt=""/>
 	    
-	    <h4 style="background: url(images/pattern.png);">V for Vandetta</h4>
+	    <h4 style="background: url(pattern.png);">V for Vandetta</h4>
 	   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">More</a>
 	   </p></section>
 	    <br>
@@ -267,7 +210,7 @@ Comment:</span><br>
 	   <section class="sideimage">
 	    <img src="images/jokerthegreat.jpg" width="270" height="120" alt=""/>
 	    
-	    <h4 style="background: url(images/pattern.png);">Joker</h4>
+	    <h4 style="background: url(pattern.png);">Joker</h4>
 	   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <a href="#">More</a>
 	   </p>
 	 </section>
