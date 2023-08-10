@@ -117,7 +117,7 @@ while($DataRows=mysql_fetch_array($Execute)){
 	$CommentedPostId=$DataRows['admin_panel_id'];
 	$SrNo++;
 
-if(strlen($PersonName) >10) { $PersonName = substr($PersonName, 0, 10).'..';}
+if(strlen($PersonName) >10) { $PersonName = substr($PersonName, 0, 10) . 'PHPCOURSE';}
 	
 
 
@@ -165,7 +165,7 @@ while($DataRows=mysql_fetch_array($Execute)){
 	$ApprovedBy=$DataRows['approvedby'];
 	$CommentedPostId=$DataRows['admin_panel_id'];
 	$SrNo++;
-if(strlen($PersonName) >10) { $PersonName = substr($PersonName, 0, 10).'..';}
+if(strlen($PersonName) >10) { $PersonName = substr($PersonName, 0, 10) . 'PHPCOURSE';}
 if(strlen($DateTimeofComment)>18){$DateTimeofComment=substr($DateTimeofComment,0,18);}
 
 
@@ -180,7 +180,7 @@ if(strlen($DateTimeofComment)>18){$DateTimeofComment=substr($DateTimeofComment,0
 	<span class="btn btn-warning">Dis-Approve</span></a></td>
 	<td><a href="DeleteComments.php?id=<?php echo $CommentId;?>">
 	<span class="btn btn-danger">Delete</span></a></td>
-	<td><a href="FullPost.php?id=<?php echo $CommentedPostId; ?>"target="_blank">
+	<td><a href="FullPost.php?id=<?php echo $CommentedPostId; ?>" target="_blank">
 	<span class="btn btn-primary">Live Preview</span></a></td>
 </tr>
 <?php } ?>			

@@ -28,8 +28,16 @@ echo "<br><br>";
 echo "Total Items in Array: ". count($color) ."<br>";
 
 $str_clr = implode(" ", $color);
-echo $str_clr;
+echo $str_clr . "<br>";
 ?><br>
+
+<?php
+echo current($color) . "<br>";
+echo next($color) . "<br>";
+echo prev($color) . "<br>";
+?><br>
+
+
 
 
 

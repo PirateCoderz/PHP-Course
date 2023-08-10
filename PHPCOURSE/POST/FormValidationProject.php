@@ -104,7 +104,7 @@ input[type="text"],input[type="email"],textarea{
 <?php ?>
 <h2>Form Validation with PHP.</h2>
 
-<form  action="FormValidationProject.php" method="post"> 
+<form action="FormValidationProject.php" method="post">
 <legend>* Please Fill Out the following Fields.</legend>			
 <fieldset>
 Name:<br>
